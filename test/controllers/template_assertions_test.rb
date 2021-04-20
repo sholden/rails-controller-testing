@@ -186,6 +186,11 @@ class TemplateAssertionsControllerTest < ActionController::TestCase
     assert_template file: nil
   end
 
+  def test_get_with_nested_params
+    get :render_nothing, params: { params: 'inner_is_a_string' }
+    assert true
+  end
+
   def test_locals_option_to_assert_template_is_not_supported
     get :render_nothing
 
